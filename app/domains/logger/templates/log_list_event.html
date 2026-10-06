@@ -1,0 +1,35 @@
+{% extends "includes/system_layout.html" %}
+
+{% block title %}
+이벤트 로그
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('event_log.static', filename='css/logger.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/log_title.html" %}
+
+{% include "includes/log_event_filter.html" %}
+
+{% include "includes/log_button.html" %}
+
+{% include "includes/log_table_event.html" %}
+
+<div id="captureModal" class="capture_modal">
+    <div calss="capture_madal_content">
+        <sapn id="closeModal" class="capture_close">&times;</sapn>
+
+        <img id="captureImage">
+    </div>
+</div>
+
+{% include "includes/log_list_pagination.html" %}
+
+<script src="{{ url_for('event_log.static', filename='js/logger_check_all.js') }}"></script>
+<script src="{{ url_for('event_log.static', filename='js/logger_selected_read.js') }}"></script>
+<script src="{{ url_for('event_log.static', filename='js/logger_capture.js') }}"></script>
+
+{% endblock %}
